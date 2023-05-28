@@ -1,0 +1,18 @@
+spring:
+  config:
+    import: classpath:logging.yml
+
+  datasource:
+    url: jdbc:postgresql://localhost:5435/product_service
+    username: product_service
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+
+server:
+  port: 8001
