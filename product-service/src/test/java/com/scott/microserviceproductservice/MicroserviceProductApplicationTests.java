@@ -28,7 +28,7 @@ class MicroserviceProductApplicationTests {
     @Container
     public static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>(
         "postgres:15.3-alpine")
-        .withUsername("product_service")
+        .withUsername("user")
         .withPassword("password");
     @Autowired
     private ProductRepository productRepository;

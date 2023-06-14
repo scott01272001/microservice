@@ -6,18 +6,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
+
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
-@Table
+@Table(name = "orders")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,12 +27,15 @@ import lombok.Setter;
 @Builder
 public class Order {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Id
     private Long id;
+
     @Column(name = "order_number")
     private String orderNumber;
+
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
     private List<OrderLineItem> orderLineItems;
 
 }

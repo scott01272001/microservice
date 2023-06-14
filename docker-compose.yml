@@ -4,12 +4,12 @@ services:
     restart: on-failure
     environment:
       POSTGRES_DB: product_service
-      POSTGRES_USER: product_service
+      POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
-      - "5435:5432"
+      - "5436:5432"
 
 volumes:
   db-data:

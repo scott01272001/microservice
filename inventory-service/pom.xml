@@ -9,10 +9,11 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>order-service</artifactId>
+	<artifactId>inventory-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>order-service</name>
-	<description>order-service</description>
+
+	<name>inventory-service</name>
+	<description>microservice</description>
 
 	<properties>
 		<java.version>17</java.version>
@@ -26,10 +27,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
 		<dependency>
@@ -45,17 +42,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<artifactId>postgresql</artifactId>
-			<groupId>org.testcontainers</groupId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<artifactId>junit-jupiter</artifactId>
-			<groupId>org.testcontainers</groupId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
