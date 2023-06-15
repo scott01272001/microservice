@@ -26,7 +26,7 @@ import org.springframework.web.util.UriBuilder;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     public void placeOrder(OrderRequest orderRequest) {
         Order order = new Order();
@@ -42,8 +42,8 @@ public class OrderService {
         List<String> skuCodes = order.getOrderLineItems().stream().map(OrderLineItem::getSkuCode).toList();
         log.info("skuCodes: " + skuCodes);
 
-        InventoryResponse[] inventoryResponsesArray = webClient.get()
-            .uri("http://localhost:8003/api/inventory",
+        InventoryResponse[] inventoryResponsesArray = webClientBuilder.build().get()
+            .uri("http://inventory-service/api/inventory",
                 uriBuilder -> uriBuilder.queryParam("skuCodes", skuCodes).build())
             .retrieve()
             .bodyToMono(InventoryResponse[].class)

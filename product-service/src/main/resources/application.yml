@@ -1,4 +1,7 @@
 spring:
+  application:
+    name: product-service
+
   config:
     import: classpath:logging.yml
 
