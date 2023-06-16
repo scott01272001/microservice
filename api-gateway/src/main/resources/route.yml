@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        ## product service route
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/api/product
+        ## order service route
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/order
+        ## discovery server route
+        - id: discovery-server
+          uri: http://localhost:8004
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+        ## discovery server static resource route
+        - id: discovery-static-resource-server
+          uri: http://localhost:8004
+          predicates:
+            - Path=/eureka/**

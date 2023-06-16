@@ -8,3 +8,7 @@ eureka:
 
 server:
   port: 8004
+
+spring:
+  config:
+    import: classpath:logging.yml
