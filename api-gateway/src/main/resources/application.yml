@@ -5,6 +5,12 @@ spring:
   config:
     import: classpath:logging.yml, classpath:route.yml
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8010/realms/microservice-realm
+
 server:
   port: 8008
 
@@ -18,5 +24,4 @@ logging:
     root: INFO
     org.springframework.cloud.gateway.route.RouteDefinitionLocator: DEBUG
     org.springframework.cloud.gateway: TRACE
-
-
+    org.springframework.security: TRACE
