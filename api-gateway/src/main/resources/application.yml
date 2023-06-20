@@ -9,7 +9,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8010/realms/microservice-realm
+          issuer-uri: http://localhost:8010/realms/microservice
 
 server:
   port: 8008
@@ -17,7 +17,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8004/eureka/
+      defaultZone: http://eureka:password@localhost:8004/eureka/
 
 logging:
   level:
